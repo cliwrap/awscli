@@ -1,0 +1,16 @@
+services:
+- docker
+script:
+- docker build -t wtanaka/alpine-37-uid-awscli .
+# Make sure the container works normally
+- docker run --rm wtanaka/alpine-37-uid-awscli aws --version 2>&1 | grep '^aws-cli/'
+after_success:
+- >
+  curl -H "Content-Type: application/json"
+  --data '{"source_type": "Branch", "source_name": "master"}'
+  -X POST
+  https://registry.hub.docker.com/u/wtanaka/alpine-37-uid-awscli/trigger/a7650f7f-d522-4b9c-8b9f-caf7feb8a4ea/
+notifications:
+  email:
+    recipients:
+      secure: NpaICFQn23VQWrCcnAuBBCXfkU5kfHdJdMObbIcJSKDIgZwomeNaxAK2cp2DxktF15dSIFFucPpRBZXJiSHMoUx7+GjwNNmCIbCtOsEzuRxNpy7soKZalf3MUfD5Ux5maVhOkEMYFa3umh66gyBEpghm6mL95Vg8gC8nQrQPwRZ2DEBNe06RDJcuA+BgnJgNwsElsQu4zTL2X0Fj/AXGj7jrGmjCItG8xe1CeOYGWsMtA55d2OPOn7/Crc9Ok0/SNoESIIy1p3LT+N/VRexwZ4NeWvR/obayY5Z2LuNL5jBwfhrxQymqCi7ssTNEsuD5RKtU2SW+SIWJugvnwszGZzRABdes0iLj2ayUakl+Sn7UMqGUjlKdp+J4zbepl0c+6El6aeBj5M9n2f1oavnIdwC3FDd79FD7lcsG12bNLax0EpjWKz2nBZ1PVCsoXt3w9LTxVFtZWcohLBW21aF9MU5KTPA+Gjnn6N37croEGDYW5mB+YynUZMsPGkLlWSCewThA2ZqmN6LZ3/wUiUIsGOa2QyyNzozGchakbKTif72KL7djkdWXlgKE5lI7qVKaq2v3L5zGOLllhHbgBYOMWi79c1iCxE6lzamlj5ukT+V5l7aznmwMcXPZAmFvPf36F/9EKLRPHgdxDtvRXVfxHg4oY23bQT+2wgQ2J2ghevM=

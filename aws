@@ -1,0 +1,9 @@
+#!/bin/sh
+docker run \
+  -it \
+  --rm \
+  -e "HOSTUID=`id -u`" \
+  -v "`pwd`:/work" \
+  -v "$HOME:/home/hostuser" \
+  wtanaka/alpine-37-uid-awscli \
+  /usr/bin/aws "$@"
