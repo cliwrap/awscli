@@ -1,6 +1,7 @@
 FROM wtanaka/alpine-37-uid
 MAINTAINER http://wtanaka.com/dockerfiles
-RUN apk add --update python py-pip \
+# groff needed for "aws ??? help"
+RUN apk add --update python py-pip groff \
   && pip install awscli --upgrade \
   && apk del py-pip \
   && apk update \
