@@ -1,5 +1,5 @@
 [![Build
-Status](https://travis-ci.org/wtanaka/docker-alpine-37-uid-awscli.svg?branch=master)](https://travis-ci.org/wtanaka/docker-alpine-37-uid-awscli)
+Status](https://travis-ci.org/docker-uid/docker-alpine-37-uid-awscli.svg?branch=master)](https://travis-ci.org/docker-uid/docker-alpine-37-uid-awscli)
 
 The `Dockerfile` in this repository builds an `alpine:3.7` container
 which lets you run commands inside the container using a UID and GID
