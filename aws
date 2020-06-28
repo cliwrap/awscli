@@ -5,5 +5,5 @@ docker run \
   -e "HOSTUID=`id -u`" \
   -v "`pwd`:/work" \
   -v "$HOME:/home/hostuser" \
-  wtanaka/alpine-37-uid-awscli \
+  cliwrap/awscli \
   /usr/bin/aws "$@"
