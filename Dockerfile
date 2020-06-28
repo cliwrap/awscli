@@ -1,4 +1,4 @@
-FROM wtanaka/alpine-37-uid
+FROM cliwrap/alpine-37
 MAINTAINER https://wtanaka.com/dockerfiles
 # groff needed for "aws ??? help"
 RUN apk add --update python py-pip groff \
