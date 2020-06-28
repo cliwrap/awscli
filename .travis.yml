@@ -1,15 +1,15 @@
 services:
 - docker
 script:
-- docker build -t wtanaka/alpine-37-uid-awscli .
+- docker build -t cliwrap/awscli .
 # Make sure the container works normally
-- docker run --rm wtanaka/alpine-37-uid-awscli aws --version 2>&1 | grep '^aws-cli/'
+- docker run --rm cliwrap/awscli aws --version 2>&1 | grep '^aws-cli/'
 after_success:
 - >
   curl -H "Content-Type: application/json"
   --data '{"source_type": "Branch", "source_name": "master"}'
   -X POST
-  https://registry.hub.docker.com/u/wtanaka/alpine-37-uid-awscli/trigger/a7650f7f-d522-4b9c-8b9f-caf7feb8a4ea/
+  https://registry.hub.docker.com/u/cliwrap/awscli/trigger/a7650f7f-d522-4b9c-8b9f-caf7feb8a4ea/
 notifications:
   email:
     recipients:
