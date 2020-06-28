@@ -7,7 +7,7 @@ which are passed in environment variables from outside the container,
 so that any files created in a volume mount can be created as the user
 and group who initiated `docker run`.  It also has `awscli` installed.
 
-To download: [`docker pull wtanaka/alpine-37-uid-awscli`](https://hub.docker.com/r/wtanaka/alpine-37-uid-awscli/)
+To download: [`docker pull cliwrap/awscli`](https://hub.docker.com/r/cliwrap/awscli/)
 
 Examples
 --------
